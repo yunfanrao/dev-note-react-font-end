@@ -1,17 +1,32 @@
-import React, {useState, useEffect} from "react";
-import {Navbar, Nav, NavDropdown, Form, FormControl, Button} from "react-bootstrap";
+import React, { useState, useEffect } from "react";
+import {useHistory} from "react-router-dom";
+import { Navbar, Nav, NavDropdown, Form, FormControl, Button } from "react-bootstrap";
 
 function Header(props) {
   const [labels, setLabels] = useState([]);
+  const [searchString, setSearchString] = useState("");
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
+  let history = useHistory();
+
+  function handleOnSubmit(event) {
+    event.preventDefault();
+    
+    history.push(`/search/${searchString}`)
+    
+    setSearchString("")
+  }
+
+  function handleOnChange(event) {
+    setSearchString(event.target.value)
+  }
 
   useEffect(() => {
     fetch(`http://localhost:3001/labels/list/all`)
       .then(res => res.json())
       .then(
         (result) => {
-          console.log("allLabels is " + result.allLabels);
+          //console.log("allLabels is " + result.allLabels);
           setIsLoaded(true);
           setLabels(result.allLabels);
         },
@@ -46,9 +61,10 @@ function Header(props) {
             </NavDropdown>
             <Nav.Link href="/archive">Archive</Nav.Link>
           </Nav>
-          <Form inline>
-            <FormControl type="text" placeholder="Search label" className="mr-sm-2" />
-            <Button variant="outline-light">Search</Button>
+          <Form inline onSubmit={handleOnSubmit}>
+            <FormControl type="text" name="searchString" onChange={handleOnChange}
+              placeholder="Search label" className="mr-sm-2" />
+            <Button variant="outline-light" type="submit">Search</Button>
           </Form>
         </Navbar>
       </div>
