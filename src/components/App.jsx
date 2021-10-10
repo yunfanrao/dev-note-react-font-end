@@ -1,6 +1,7 @@
 import React from "react";
 import Home from "./routes/Home";
 import LabelNotes from "./routes/LabelNotes";
+import SearchNotes from "./routes/SearchNotes";
 import Archive from "./routes/Archive";
 import {
   BrowserRouter as Router,
@@ -13,6 +14,10 @@ function App() {
   const goLabelNotes = ( {match} ) => (
       <LabelNotes labelName={match.params.labelName} />
   )
+  
+  const goSearchNotes = ( {match} ) => (
+    <SearchNotes searchString={match.params.searchString} />
+)
 
   return (
     <Router>
@@ -22,6 +27,7 @@ function App() {
             <Home />
           </Route>
           <Route path="/labels/:labelName" component={goLabelNotes} />
+          <Route path="/search/:searchString" component={goSearchNotes} />
           <Route path="/archive">
             <Archive />
           </Route>
