@@ -3,6 +3,7 @@ import Home from "./routes/Home";
 import LabelNotes from "./routes/LabelNotes";
 import SearchNotes from "./routes/SearchNotes";
 import Archive from "./routes/Archive";
+import Signin from "./routes/Signin";
 import {
   BrowserRouter as Router,
   Switch,
@@ -30,6 +31,9 @@ function App() {
           <Route path="/search/:searchString" component={goSearchNotes} />
           <Route path="/archive">
             <Archive />
+          </Route>
+          <Route path="/signin">
+            <Signin />
           </Route>
         </Switch>
       </div>

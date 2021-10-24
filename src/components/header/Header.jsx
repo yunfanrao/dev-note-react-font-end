@@ -50,14 +50,10 @@ function Header(props) {
           <Navbar.Brand href="#home">Dev-Note</Navbar.Brand>
           <Nav className="mr-auto">
             <Nav.Link href="/">Home</Nav.Link>
-            {/* <Nav.Link href="/labels">Labels</Nav.Link> */}
             <NavDropdown title="Labels" id="labels">
               {labels.map(labelName => (
                 <NavDropdown.Item href={"/labels/" + labelName}>{labelName}</NavDropdown.Item>
             ))}
-              {/* <NavDropdown.Item href="/labels/awesome">awesome</NavDropdown.Item>
-              <NavDropdown.Item href="/labels/hi">hi</NavDropdown.Item>
-              <NavDropdown.Item href="/labels/test">test</NavDropdown.Item> */}
             </NavDropdown>
             <Nav.Link href="/archive">Archive</Nav.Link>
           </Nav>
@@ -66,6 +62,9 @@ function Header(props) {
               placeholder="Search label" className="mr-sm-2" />
             <Button variant="outline-light" type="submit">Search</Button>
           </Form>
+          <Nav className="mr-sm-1">
+            <Nav.Link href="/signin" style={{ color:"white" }}>Sign in</Nav.Link>
+          </Nav>
         </Navbar>
       </div>
     )
