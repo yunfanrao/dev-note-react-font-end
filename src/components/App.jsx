@@ -4,6 +4,7 @@ import LabelNotes from "./routes/LabelNotes";
 import SearchNotes from "./routes/SearchNotes";
 import Archive from "./routes/Archive";
 import Signin from "./routes/Signin";
+import Signup from "./routes/Signup";
 import {
   BrowserRouter as Router,
   Switch,
@@ -27,13 +28,21 @@ function App() {
           <Route exact path="/">
             <Home />
           </Route>
+          
           <Route path="/labels/:labelName" component={goLabelNotes} />
+          
           <Route path="/search/:searchString" component={goSearchNotes} />
+          
           <Route path="/archive">
             <Archive />
           </Route>
+          
           <Route path="/signin">
             <Signin />
+          </Route>
+        
+          <Route path="/signup">
+            <Signup />
           </Route>
         </Switch>
       </div>

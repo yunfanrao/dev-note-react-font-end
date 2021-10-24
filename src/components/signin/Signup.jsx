@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Card, Col, Container, Form, Row } from "react-bootstrap";
 
-function Signin(props) {
+function Signup(props) {
 
   return (
     <div>
@@ -29,27 +29,11 @@ function Signin(props) {
                   </Col>
                 </Form.Group>
 
-                <Form.Group as={Row} className="mb-3" controlId="formHorizontalCheck">
-                  <Col sm={{ span: 9, offset: 3 }}>
-                    <Form.Check label="Remember me" />
-                  </Col>
-                </Form.Group>
-
                 <Form.Group as={Row} className="mb-3">
                   <Col sm={{ span: 9, offset: 3 }}>
-                    <Button type="submit" variant="info">Sign in</Button>
+                    <Button type="submit" variant="info">Sign up</Button>
                   </Col>
                 </Form.Group>
-
-                <Form.Group as={Row} className="mb-1">
-                  <Form.Label column sm={ { span: 9, offset: 6 }}>
-                    No account yet? Sign up here
-                  </Form.Label>
-                  <Col sm={{ offset: 9 }}>
-                    <Button href="/signup" type="button" variant="outline-info sm">Sign up</Button>
-                  </Col>
-                </Form.Group>
-                
               </Form>
               </Card.Body>
             </Card>
@@ -60,4 +44,4 @@ function Signin(props) {
   )
 }
 
-export default Signin;
+export default Signup;
