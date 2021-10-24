@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "../header/Header";
-import Signup from "../signin/Signup";
+import Signup from "../auth/Signup";
 
 function Home() {
   return (
